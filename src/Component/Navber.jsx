@@ -18,7 +18,7 @@ const Navber = () => {
       {href:"Articles", label:"Articles / Blog"},
     ]
 
-    const SignUPButton = []
+    
   return (
     <div className='' >
               <nav className=' fixed bg-white/90 border-gray-200 top-0 right-0 left-0 z-50 border-b'>
@@ -55,7 +55,7 @@ const Navber = () => {
     </nav>
     
 
-                <div className=' w-full container pt-30  '>
+                <div className='  pt-30  '>
                {
                         isMenuopen && (
                            <div className='flex flex-col  gap-4 lg:hidden border-b z-50 border-gray-300 pb-5 left-0 right-0'>
@@ -64,7 +64,7 @@ const Navber = () => {
                                             setActivelink(link.href);
                                             setIsmenuOpen(false);
                                           }}
-                                           className=' text-2xl NavText  flex justify-between  hover:text-blue-400 hover:scale-105
+                                           className=' text-2xl   flex justify-between  hover:text-blue-400 hover:scale-105
                                             transition-transform duration-200 '
                                           >  <span className='ml-7' >{link.label}</span>
                                              <HiArrowRight className=' text-gray-700 size-6 mr-5' /> </a>
