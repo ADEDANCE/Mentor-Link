@@ -21,7 +21,7 @@ const Navber = () => {
     
   return (
     <div className='' >
-              <nav className=' fixed bg-white/90 border-gray-200 top-0 right-0 left-0 z-50 border-b'>
+              <nav className=' fixed bg-white/90 border-gray-500 top-0 right-0 left-0 z-50 border-b'>
           <div className=' w-full container  items-center mx-auto flex  justify-between px-4 sm:px-6 lg:px-8 h-25 md:h20 gap-4'>
                 <div  className='flex-shrink-0 w-32'>
                        <img src={Mentoreelogo} alt="" className=' w-full object-contain' />
@@ -55,7 +55,7 @@ const Navber = () => {
     </nav>
     
 
-                <div className='  pt-30  '>
+                <div className='  pt-24  '>
                {
                         isMenuopen && (
                            <div className='flex flex-col  gap-4 lg:hidden border-b z-50 border-gray-300 pb-5 left-0 right-0'>
