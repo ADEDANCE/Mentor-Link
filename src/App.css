@@ -8,3 +8,27 @@
         @apply 
     }
 } */
+
+
+.testimonial-Swiper {
+    padding: 20px 0;
+}
+
+.testimonial-Swiper .swiper-slide {
+    height:  auto;
+}
+
+.testimonial-Swiper .swiper-slide-next::after,
+.testimonial-Swiper .swiper-slide-prev::after {
+    display: none;
+}
+
+.swiper-slide-next .swiper-slide-prev {
+    display: none;
+}
+
+.swiper-button-next-custom.swiper-button-disabled,
+.swiper-button-prev-custom.swiper-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
