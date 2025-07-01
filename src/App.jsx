@@ -5,6 +5,7 @@ import './App.css'
 import Navber from './Component/Navber'
 import SubNav from './Component/SubNav'
 import HeroSection from './Component/HeroSection'
+import TestimonialsSection from './Component/TestimonialsSection'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,7 @@ function App() {
        <Navber />
        <SubNav />
        <HeroSection />
+       <TestimonialsSection />
     </>
   )
 }
