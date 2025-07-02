@@ -6,6 +6,7 @@ import Navber from './Component/Navber'
 import SubNav from './Component/SubNav'
 import HeroSection from './Component/HeroSection'
 import TestimonialsSection from './Component/TestimonialsSection'
+import UserGuidlineSection from './Component/UserGuidlineSection'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +17,7 @@ function App() {
        <SubNav />
        <HeroSection />
        <TestimonialsSection />
+       <UserGuidlineSection />
     </>
   )
 }
