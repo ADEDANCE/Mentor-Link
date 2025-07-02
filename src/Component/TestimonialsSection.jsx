@@ -17,6 +17,7 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
 
 
+
 const TestimonialsSection = () => {
 
     const testimonials = [
@@ -24,48 +25,50 @@ const TestimonialsSection = () => {
             id: 1,
             name: "Asif",
             Image: MentorAsif,
-            Text:"Consultant & Investor",
-            Occupation: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast."
+            Text:"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
+            Occupation: "Consultant & Investor"
         },
         {
             id: 2,
             name: "Larry",
-            Image: {MentorLarry},
+            Image: MentorLarry,
             Text:"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
             Occupation: "Co-Founder, Mercom"
         },
         {
             id: 3,
             name: "Matt",
-            Image: {MentorMatt},
+            Image: MentorMatt,
             Text:"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
             Occupation: "CEO/Partner at Product Vessel, Partner at Mentoree, Partner at Scam Detector, Partner at GemGates & more fun stuff"
         },
             {
             id: 4,
             name: "Amanda",
-            Image: {MentorAmanda},
+            Image: MentorAmanda,
             Text:"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
             Occupation: "Developer"
         },
         {
             id: 5,
             name: "Arindam",
-            Image: {MentorArindam},
+            Image: MentorArindam,
             Text:"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
             Occupation: "COO,Product Vessel India"
         },
         {
             id: 6,
             name: "Gab",
-            Image: {MentorGab},
+            Image: MentorGab,
             Text:"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
             Occupation: "Innovation Specialist at BRP-X , BRP's innovation lab."
         },
     ]
+
+    const [activeIndex, setActiveIndex] = React.useState(0);
   return (
-    <section className=' py-16 px-4 mx-auto bg-white max-w-7xl  pt-32'>
-         <div className='  flex  flex-col gap-3 items-center pb-32'>
+    <section className=' py-16 px-4 mx-auto bg-white w-full  pt-28'>
+         <div className='  flex   flex-col gap-3 items-center pb-32'>
             
               <img src={HeartShape} alt="heart-shape" />
               
@@ -74,9 +77,11 @@ const TestimonialsSection = () => {
               <p className=' text-sm  sm:text-xl md:text-2xl lg:text-3xl text-gray-700'>Hear what the community is saying about us</p>
          </div>
 
-         <div className=' relative'>
+         <div className=' container  mx-auto relative'>
                    <Swiper
         spaceBetween={30}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+
         navigation={
             {
                 nextEl: '.swiper-button-next-custom',
@@ -98,27 +103,53 @@ const TestimonialsSection = () => {
         modules={[Navigation]}
         className="testimonial-Swiper mb-12"
       >
-          {
-            testimonials.map((testimonial, index) => (
-                <SwiperSlide key={ index} className=' w-full md:py-12 sm:py-4' >
-                                <div className=' text-center bg-white p-4 rounded-lg shadow-md h-full flex flex-col'>
+       {testimonials.map((testimonial, index) => {
+  let bgColor = "bg-white";
 
-                                    <h3 className=' text-xl font-semibold mb-3 '>{testimonial.name}</h3>
+  if (index === activeIndex) {
+    bgColor = "bg-green-50"; // First visible
+  } else if (index === activeIndex + 1) {
+    bgColor = "bg-red-50"; // Middle
+  } else if (index === activeIndex + 2) {
+    bgColor = "bg-green-50"; // Last visible
+  }
 
-                                    <p className=' text-gray-600'>{testimonial.Text}</p>
-                                    
-                                </div>
-                </SwiperSlide>
-            ))
-          }
+  return (
+    <SwiperSlide key={index} className=" md:py-12 sm:py-4">
+      {/* <div className='flex flex-col items-center justify-start w-full'> */}
+<div
+  className={` text-center p-4 pb-48 min-h-[380px] rounded-4xl shadow-md w-full ${bgColor}`}
+>
+
+  <p className="text-gray-600 text-xl sm:text-xl md:text-2xl lg:text-3xl">
+    {testimonial.Text}
+  </p>
+</div>
+  <div className="ml-8 bottom-0  -mt-10 flex flex-col items-start">
+
+    <img
+      src={testimonial.Image}
+      className="rounded-full w-20 h-20 border-4 border-white"
+      alt={testimonial.name}
+    />
+    <h3 className="text-xl font-semibold text-gray-900">{testimonial.name}</h3>
+    <p>{testimonial.Occupation}</p>
+  </div>
+
+
+
+      
+    </SwiperSlide>
+  );
+})}
       </Swiper>
 
-         <div className=' flex justify-center mt-4 gap-4 md:mt-8'>
-                        <button className=' swiper-button-prev-custom w-12 h-12 rounded-full border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all duration-200 cursor-pointer'>
-                                  <BsChevronLeft className=' size-6'/>
+         <div className=' flex justify-start  mt-4 gap-4 md:mt-8'>
+                        <button className='outline-1  swiper-button-prev-custom w-12 h-12 rounded-full border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all duration-200 cursor-pointer'>
+                                  <BsChevronLeft className='  size-6'/>
                         </button>
 
-                         <button className=' swiper-button-next-custom w-12 h-12 rounded-full border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all duration-200 cursor-pointer'>
+                         <button className='outline-1   swiper-button-next-custom w-12 h-12 rounded-full border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all duration-200 cursor-pointer'>
                                   <BsChevronRight className=' size-6'/>
                         </button>
                   </div>
